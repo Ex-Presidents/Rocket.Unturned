@@ -66,8 +66,7 @@ namespace Rocket.Unturned.Chat
                 hexString = hexString.Insert(3, System.Convert.ToString(hexString[2])); // #9999f
                 hexString = hexString.Insert(5, System.Convert.ToString(hexString[4])); // #9999ff
             }
-            int argb;
-            if (hexString.Length != 6 || !Int32.TryParse(hexString, System.Globalization.NumberStyles.HexNumber, null, out argb))
+            if (hexString.Length != 6 || !Int32.TryParse(hexString, System.Globalization.NumberStyles.HexNumber, null, out int argb))
             {
                 return null;
             }

