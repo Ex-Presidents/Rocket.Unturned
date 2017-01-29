@@ -28,7 +28,7 @@ namespace Rocket.Unturned.Commands
             if (caller is UnturnedPlayer && command.Length != 1)
             {
                 UnturnedPlayer player = (UnturnedPlayer)caller;
-                player.Heal(100, false, false);
+                player.Heal(100, true, true);
                 player.Player.life.askDisinfect(100);
                 player.Player.life.askDrink(100);
                 player.Player.life.askEat(100);
@@ -39,7 +39,7 @@ namespace Rocket.Unturned.Commands
                 UnturnedPlayer otherPlayer = UnturnedPlayer.FromName(command[0]);
                 if (otherPlayer != null)
                 {
-                    otherPlayer.Heal(100, false, false);
+                    otherPlayer.Heal(100, true, true);
                     otherPlayer.Player.life.askDisinfect(100);
                     otherPlayer.Player.life.askDrink(100);
                     otherPlayer.Player.life.askEat(100);
