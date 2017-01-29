@@ -474,14 +474,6 @@ namespace Rocket.Unturned.Player
             player.life.askHeal(amount, bleeding != null ? bleeding.Value : player.life.isBleeding, broken != null ? broken.Value : player.life.isBroken);
         }
 
-        public void Heal(byte amount, bool? bleeding, bool? broken, byte hunger, byte thirst, byte infection)
-        {
-            Heal(amount, bleeding, broken);
-            Hunger = hunger;
-            Thirst = thirst;
-            Infection = infection;
-        }
-
         public void Suicide()
         {
             player.life.askSuicide(player.channel.owner.playerID.steamID);

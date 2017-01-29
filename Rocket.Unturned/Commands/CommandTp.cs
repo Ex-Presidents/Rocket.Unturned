@@ -50,21 +50,11 @@ namespace Rocket.Unturned.Commands
                 Core.Logging.Logger.Log(U.Translate("command_tp_teleport", player.CharacterName, "forward"));
             }
 
-            float? x = null;
-            float? y = null;
-            float? z = null;
-
-            if (command.Length == 3)
+            if (command.Length == 3 && float.TryParse(command[0], out float x) && float.TryParse(command[1], out float y) && float.TryParse(command[2], out float z))
             {
-                x = command.GetFloatParameter(0);
-                y = command.GetFloatParameter(1);
-                z = command.GetFloatParameter(2);
-            }
-            if (x != null && y != null && z != null)
-            {
-                player.Teleport(new Vector3((float)x, (float)y, (float)z), MeasurementTool.angleToByte(player.Rotation));
-                Core.Logging.Logger.Log(U.Translate("command_tp_teleport", player.CharacterName, (float)x + "," + (float)y + "," + (float)z));
-                UnturnedChat.Say(player, U.Translate("command_tp_teleport", (float)x + "," + (float)y + "," + (float)z));
+                player.Teleport(new Vector3(x, y, z), MeasurementTool.angleToByte(player.Rotation));
+                Core.Logging.Logger.Log(U.Translate("command_tp_teleport", player.CharacterName, x + "," + y + "," + z));
+                UnturnedChat.Say(player, U.Translate("command_tp_teleport", x + "," + y + "," + z));
             }
             else
             {
