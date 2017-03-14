@@ -28,10 +28,7 @@ namespace Rocket.Unturned.Commands
             }
             List<string> raw = UnturnedChat.wrapMessage(command[0]);
             for (int i = 0; i < raw.Count; i++)
-            {
-                string m = raw[i];
-                ChatManager.instance.channel.send("tellChat", ESteamCall.OTHERS, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[] { CSteamID.Nil, (byte)EChatMode.GLOBAL, Palette.SERVER, m });
-            }
+                ChatManager.instance.channel.send("tellChat", ESteamCall.OTHERS, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[] { CSteamID.Nil, (byte)EChatMode.GLOBAL, Palette.SERVER, raw[i] });
         }
     }
 }
