@@ -60,13 +60,15 @@ namespace Rocket.Unturned.Chat
         public static Color? GetColorFromHex(string hexString)
         {
             hexString = hexString.Replace("#", "");
+            int argb;
+
             if (hexString.Length == 3)
             { // #99f
                 hexString = hexString.Insert(1, System.Convert.ToString(hexString[0])); // #999f
                 hexString = hexString.Insert(3, System.Convert.ToString(hexString[2])); // #9999f
                 hexString = hexString.Insert(5, System.Convert.ToString(hexString[4])); // #9999ff
             }
-            if (hexString.Length != 6 || !Int32.TryParse(hexString, System.Globalization.NumberStyles.HexNumber, null, out int argb))
+            if (hexString.Length != 6 || !Int32.TryParse(hexString, System.Globalization.NumberStyles.HexNumber, null, out argb))
             {
                 return null;
             }

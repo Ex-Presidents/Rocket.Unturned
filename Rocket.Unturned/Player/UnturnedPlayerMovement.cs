@@ -30,6 +30,8 @@ namespace Rocket.Unturned
                                 if (e.Result.Contains(","))
                                 {
                                     string[] result = e.Result.Split(',');
+                                    long age;
+
                                     if (result[0] == "true")
                                     {
                                         Core.Logging.Logger.Log("[RocketMod Observatory] Kicking Player " + Player.CharacterName + "because he is banned:" + result[1]);
@@ -42,7 +44,7 @@ namespace Rocket.Unturned
                                         Core.Logging.Logger.Log("[RocketMod Observatory] Kicking Player " + Player.CharacterName + " because his account is limited");
                                         Player.Kick("your Steam account is limited");
                                     }
-                                    else if (U.Settings.Instance.RocketModObservatory.KickTooYoungAccounts && result.Length == 3 && long.TryParse(result[2].ToString(), out long age))
+                                    else if (U.Settings.Instance.RocketModObservatory.KickTooYoungAccounts && result.Length == 3 && long.TryParse(result[2].ToString(), out age))
                                     {
                                         long epochTicks = new DateTime(1970, 1, 1).Ticks;
                                         long unixTime = ((DateTime.UtcNow.Ticks - epochTicks) / TimeSpan.TicksPerSecond);

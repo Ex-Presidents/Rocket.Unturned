@@ -30,6 +30,8 @@ namespace Rocket.Unturned.Commands
         public void Execute(IRocketPlayer caller, string[] command)
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
+            float x, y, z;
+
             if (command.Length == 2 || command.Length > 3)
             {
                 UnturnedChat.Say(player, U.Translate("command_generic_invalid_parameter"));
@@ -44,13 +46,15 @@ namespace Rocket.Unturned.Commands
 
             if(command.Length == 0 && player.HasPermission("rocket.i.forward"))
             {
-                Physics.Raycast(player.Player.look.aim.position, player.Player.look.aim.forward, out RaycastHit raycast);
+                RaycastHit raycast;
+
+                Physics.Raycast(player.Player.look.aim.position, player.Player.look.aim.forward, out raycast);
                 player.Teleport(new Vector3(raycast.point.x, raycast.point.y + 3f, raycast.point.z), player.Rotation);
                 UnturnedChat.Say(caller, U.Translate("command_tp_teleport", "You", "forward."));
                 Core.Logging.Logger.Log(U.Translate("command_tp_teleport", player.CharacterName, "forward"));
             }
 
-            if (command.Length == 3 && float.TryParse(command[0], out float x) && float.TryParse(command[1], out float y) && float.TryParse(command[2], out float z))
+            if (command.Length == 3 && float.TryParse(command[0], out x) && float.TryParse(command[1], out y) && float.TryParse(command[2], out z))
             {
                 player.Teleport(new Vector3(x, y, z), MeasurementTool.angleToByte(player.Rotation));
                 Core.Logging.Logger.Log(U.Translate("command_tp_teleport", player.CharacterName, x + "," + y + "," + z));

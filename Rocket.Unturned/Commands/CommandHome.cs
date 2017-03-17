@@ -28,7 +28,10 @@ namespace Rocket.Unturned.Commands
         public void Execute(IRocketPlayer caller, string[] command)
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
-            if (!BarricadeManager.tryGetBed(player.CSteamID, out Vector3 pos, out byte rot))
+            Vector3 pos;
+            byte rot;
+
+            if (!BarricadeManager.tryGetBed(player.CSteamID, out pos, out rot))
             {
                 UnturnedChat.Say(caller, U.Translate("command_bed_no_bed_found_private"));
                 throw new WrongUsageOfCommandException(caller, this);

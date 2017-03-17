@@ -40,8 +40,9 @@ namespace Rocket.Unturned.Commands
             byte amount = 1;
 
             string itemString = command[0].ToString();
+            ushort id;
 
-            if (!ushort.TryParse(itemString, out ushort id))
+            if (!ushort.TryParse(itemString, out id))
             {
                 List<ItemAsset> sortedAssets = new List<ItemAsset>(SDG.Unturned.Assets.find(EAssetType.ITEM).Cast<ItemAsset>());
                 ItemAsset asset = sortedAssets.Where(i => i.itemName != null).OrderBy(i => i.itemName.Length).Where(i => i.itemName.ToLower().Contains(itemString.ToLower())).FirstOrDefault();

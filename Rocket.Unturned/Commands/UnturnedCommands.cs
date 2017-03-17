@@ -85,7 +85,7 @@ namespace Rocket.Unturned.Commands
                 {
                     id = ((UnturnedPlayer)caller).CSteamID;
                 }
-                Commander.commands.Where(c => c.command == Name).FirstOrDefault()?.check(id, Name, String.Join("/", command));
+                Commander.commands.Where(c => c.command == Name).FirstOrDefault().check(id, Name, String.Join("/", command));
             }
         }
     }

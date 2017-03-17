@@ -132,8 +132,11 @@ namespace Rocket.Unturned.Player
         public static UnturnedPlayer FromName(string name)
         {
             if (String.IsNullOrEmpty(name)) return null;
+
             SDG.Unturned.Player p = null;
-            if (ulong.TryParse(name, out ulong id) && id > 76561197960265728)
+            ulong id;
+
+            if (ulong.TryParse(name, out id) && id > 76561197960265728)
             {
                 p = PlayerTool.getPlayer(new CSteamID(id));
             }
@@ -480,8 +483,9 @@ namespace Rocket.Unturned.Player
         }
 
         public EPlayerKill Damage(byte amount, Vector3 direction, EDeathCause cause, ELimb limb, CSteamID damageDealer)
-        {   
-            player.life.askDamage(amount, direction, cause, limb, damageDealer, out EPlayerKill playerKill);
+        {
+            EPlayerKill playerKill;
+            player.life.askDamage(amount, direction, cause, limb, damageDealer, out playerKill);
             return playerKill;
         }
 
