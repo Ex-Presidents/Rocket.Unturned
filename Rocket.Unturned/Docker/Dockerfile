@@ -1,6 +1,7 @@
 FROM ubuntu
 
-EXPOSE 27015/udp
+EXPOSE 27016/udp
+EXPOSE 27017/udp
 VOLUME ["/home/rocket/unturned/Servers/"]
 
 RUN useradd -ms /bin/bash rocket
@@ -19,7 +20,6 @@ RUN (crontab -l ; echo "@daily /home/rocket/steamcmd/update.sh") | sort - | uniq
 
 ADD credentials/STEAM_USERNAME /root/.steam_user
 ADD credentials/STEAM_PASSWORD /root/.steam_pass
-ADD credentials/ROCKET_API_KEY /root/.rocket_id
 
 ONBUILD USER root
 ONBUILD run /home/rocket/update.sh
