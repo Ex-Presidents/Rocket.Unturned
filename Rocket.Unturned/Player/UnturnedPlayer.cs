@@ -203,6 +203,7 @@ namespace Rocket.Unturned.Player
             {
                 skill.level = skill.max;
             }
+            Player.skills.askSkills(CSteamID);
         }
 
         public string SteamGroupName()

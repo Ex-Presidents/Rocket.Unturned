@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Commands\CommandBroadcastRaw.cs" />
     <Compile Include="Commands\CommandMore.cs" />
+    <Compile Include="Commands\CommandStatus.cs" />
     <Compile Include="Commands\UnturnedCommands.cs" />
     <Compile Include="Commands\UnturnedCommandExtensions.cs" />
     <Compile Include="HUD.cs" />
