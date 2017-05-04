@@ -30,53 +30,17 @@ namespace Rocket.Unturned.Commands
                 this.command = command;
             }
 
-            public List<string> Aliases
-            {
-                get
-                {
-                    return new List<string>();
-                }
-            }
+            public List<string> Aliases => new List<string>();
 
-            public AllowedCaller AllowedCaller
-            {
-                get
-                {
-                    return AllowedCaller.Both;
-                }
-            }
+            public AllowedCaller AllowedCaller => AllowedCaller.Both;
 
-            public string Help
-            {
-                get
-                {
-                    return command.help;
-                }
-            }
+            public string Help => command.help;
 
-            public string Name
-            {
-                get
-                {
-                    return command.command;
-                }
-            }
+            public string Name => command.command;
 
-            public List<string> Permissions
-            {
-                get
-                {
-                    return new List<string>() { "unturned." + command.command.ToLower() };
-                }
-            }
+            public List<string> Permissions => new List<string>() { "unturned." + command.command.ToLower() };
 
-            public string Syntax
-            {
-                get
-                {
-                    return command.info.Replace("/", " ");
-                }
-            }
+            public string Syntax => command.info.Replace("/", " ");
 
             public void Execute(IRocketPlayer caller, string[] command)
             {

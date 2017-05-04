@@ -11,17 +11,17 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Both; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Both;
 
-        public string Name { get { return "p"; } }
+        public string Name => "p";
 
-        public string Help { get { return "Sets a Rocket permission group of a specific player"; } }
+        public string Help => "Sets a Rocket permission group of a specific player";
 
-        public string Syntax { get { return "<player> [group] | reload"; } }
+        public string Syntax => "<player> [group] | reload";
 
-        public List<string> Aliases { get { return new List<string>() { "permissions" }; } }
+        public List<string> Aliases => new List<string>() { "permissions" };
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.p", "rocket.permissions" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.p", "rocket.permissions" };
 
         #endregion Properties
 

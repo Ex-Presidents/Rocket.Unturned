@@ -9,17 +9,17 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Player; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Player;
 
-        public string Name { get { return "exit"; } }
+        public string Name => "exit";
 
-        public string Help { get { return "Exit the game without cooldown"; } }
+        public string Help => "Exit the game without cooldown";
 
-        public string Syntax { get { return ""; } }
+        public string Syntax => "";
 
-        public List<string> Aliases { get { return new List<string>(); } }
+        public List<string> Aliases => new List<string>();
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.exit" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.exit" };
 
         #endregion Properties
 

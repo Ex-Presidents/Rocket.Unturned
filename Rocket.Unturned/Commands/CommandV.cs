@@ -12,17 +12,17 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Player; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Player;
 
-        public string Name { get { return "v"; } }
+        public string Name => "v";
 
-        public string Help { get { return "Gives yourself an vehicle"; } }
+        public string Help => "Gives yourself an vehicle";
 
-        public string Syntax { get { return "<id>"; } }
+        public string Syntax => "<id>";
 
-        public List<string> Aliases { get { return new List<string>(); } }
+        public List<string> Aliases => new List<string>();
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.v", "rocket.vehicle" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.v", "rocket.vehicle" };
 
         #endregion Properties
 

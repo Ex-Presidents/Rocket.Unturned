@@ -10,12 +10,12 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Both; } }
-        public string Name { get { return "broadcastraw"; } }
-        public string Help { get { return "Broadcasts a message without 'Server: ' prefix."; } }
-        public string Syntax { get { return "/broadcastraw <message>"; } }
-        public List<string> Aliases { get { return new List<string>(); } }
-        public List<string> Permissions { get { return new List<string>() { "rocket.broadcastraw" }; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Both;
+        public string Name => "broadcastraw";
+        public string Help => "Broadcasts a message without 'Server: ' prefix.";
+        public string Syntax => "/broadcastraw <message>";
+        public List<string> Aliases => new List<string>();
+        public List<string> Permissions => new List<string>() { "rocket.broadcastraw" };
 
         #endregion Properties
 

@@ -191,8 +191,7 @@ namespace Rocket.Unturned.Player
         {
             get
             {
-                P2PSessionState_t State;
-                SteamGameServerNetworking.GetP2PSessionState(CSteamID, out State);
+                SteamGameServerNetworking.GetP2PSessionState(CSteamID, out P2PSessionState_t State);
                 return Parser.getIPFromUInt32(State.m_nRemoteIP);
             }
         }
@@ -200,9 +199,7 @@ namespace Rocket.Unturned.Player
         public void MaxSkills()
         {
             foreach (Skill skill in (player.skills.skills.SelectMany((Skill[] skills) => skills)))
-            {
                 skill.level = skill.max;
-            }
             Player.skills.askSkills(CSteamID);
         }
 

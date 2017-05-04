@@ -9,17 +9,17 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Player; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Player;
 
-        public string Name { get { return "compass"; } }
+        public string Name => "compass";
 
-        public string Help { get { return "Shows the direction you are facing"; } }
+        public string Help => "Shows the direction you are facing";
 
-        public string Syntax { get { return "[direction]"; } }
+        public string Syntax => "[direction]";
 
-        public List<string> Aliases { get { return new List<string>(); } }
+        public List<string> Aliases => new List<string>();
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.compass" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.compass" };
 
         #endregion Properties
 

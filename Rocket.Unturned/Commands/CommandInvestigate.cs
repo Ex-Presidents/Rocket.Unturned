@@ -9,17 +9,17 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Both; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Both;
 
-        public string Name { get { return "investigate"; } }
+        public string Name => "investigate";
 
-        public string Help { get { return "Shows you the SteamID64 of a player"; } }
+        public string Help => "Shows you the SteamID64 of a player";
 
-        public string Syntax { get { return "<player>"; } }
+        public string Syntax => "<player>";
 
-        public List<string> Aliases { get { return new List<string>(); } }
+        public List<string> Aliases => new List<string>();
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.investigate" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.investigate" };
 
         #endregion Properties
 

@@ -10,25 +10,25 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Player; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Player;
 
-        public string Name { get { return "vanish"; } }
+        public string Name => "vanish";
 
-        public string Help { get { return "Are we rushing in or are we goin' sneaky beaky like?"; } }
+        public string Help => "Are we rushing in or are we goin' sneaky beaky like?";
 
-        public string Syntax { get { return ""; } }
+        public string Syntax => "";
 
-        public List<string> Aliases { get { return new List<string>(); } }
+        public List<string> Aliases => new List<string>();
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.vanish" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.vanish" };
 
         #endregion Properties
 
         public void Execute(IRocketPlayer caller, string[] command)
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
-            Logger.Log(U.Translate("command_vanish_toggle_console", player.CharacterName));
-            UnturnedChat.Say(player, U.Translate("command_vanish_toggle_private"));
+            Logger.Log(U.Translate("command_vanish_toggle", player.CharacterName));
+            UnturnedChat.Say(player, U.Translate("command_vanish_toggle"));
             player.Features.VanishMode = !player.Features.VanishMode;
         }
     }

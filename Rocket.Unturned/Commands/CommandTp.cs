@@ -13,17 +13,17 @@ namespace Rocket.Unturned.Commands
     {
         #region Properties
 
-        public AllowedCaller AllowedCaller { get { return AllowedCaller.Player; } }
+        public AllowedCaller AllowedCaller => AllowedCaller.Player;
 
-        public string Name { get { return "tp"; } }
+        public string Name => "tp";
 
-        public string Help { get { return "Teleports you to another player or location"; } }
+        public string Help => "Teleports you to another player or location";
 
-        public string Syntax { get { return "<player | place | x y z>"; } }
+        public string Syntax => "<player | place | x y z>";
 
-        public List<string> Aliases { get { return new List<string>(); } }
+        public List<string> Aliases => new List<string>();
 
-        public List<string> Permissions { get { return new List<string>() { "rocket.tp", "rocket.teleport" }; } }
+        public List<string> Permissions => new List<string>() { "rocket.tp", "rocket.teleport" };
 
         #endregion Properties
 
