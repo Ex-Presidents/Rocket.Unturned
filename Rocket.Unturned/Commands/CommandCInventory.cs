@@ -29,9 +29,15 @@ namespace Rocket.Unturned.Commands
         public void Execute(IRocketPlayer caller, string[] command)
         {
             if (command.Length != 2)
+            {
                 UnturnedChat.Say(caller, "Correct syntax is: " + Syntax);
+                return;
+            }
             if (UnturnedPlayer.FromName(command[0]) == null)
+            {
                 UnturnedChat.Say(command[0] + " does not exist.");
+                return;
+            }
             UnturnedPlayer Target = UnturnedPlayer.FromName(command[0]);
             if (ushort.TryParse(command[1], out ushort id))
             {
