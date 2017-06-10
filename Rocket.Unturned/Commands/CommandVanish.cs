@@ -27,8 +27,8 @@ namespace Rocket.Unturned.Commands
         public void Execute(IRocketPlayer caller, string[] command)
         {
             UnturnedPlayer player = (UnturnedPlayer)caller;
-            Logger.Log(U.Translate("command_vanish_toggle", player.CharacterName));
-            UnturnedChat.Say(player, U.Translate("command_vanish_toggle"));
+            Logger.Log(U.Translate("command_vanish_toggle", player.CharacterName, player.Features.VanishMode ? "off" : "on"));
+            UnturnedChat.Say(player, U.Translate("command_vanish_toggle", "You", player.Features.VanishMode ? "off" : "on"));
             player.Features.VanishMode = !player.Features.VanishMode;
         }
     }

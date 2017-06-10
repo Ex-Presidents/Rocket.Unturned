@@ -27,7 +27,7 @@ namespace Rocket.Unturned.Commands
         {
             UnturnedPlayer Player = caller as UnturnedPlayer;
             UnturnedChat.Say(Player, "God: " + (Player.Features.GodMode ? "on" : "off"));
-            UnturnedChat.Say(Player, "Vanish:" + (Player.Features.VanishMode ? "on" : "off"));
+            UnturnedChat.Say(Player, "Vanish: " + (Player.Features.VanishMode ? "on" : "off"));
         }
     }
 }
