@@ -68,6 +68,22 @@ namespace Rocket.Unturned
 
         private void FixedUpdate()
         {
+            if (U.Settings.Instance.EnableItemBlacklist && lastUpdate.AddSeconds(1) < DateTime.Now)
+            {
+                ushort[] Items = U.Settings.Instance.Items.ToArray();
+                for (int i = 0; i < Items.Length; i++)
+                {
+                    InventorySearch[] Search = Player.Inventory.search(Items[i], true, true).ToArray();
+                    if (Search.Length == 0)
+                        continue;
+                    for (int e = 0; e < Search.Length; e++)
+                    {
+                        InventorySearch ISearch = Search[e];
+                        Player.Inventory.removeItem(ISearch.page, ISearch.jar.y);
+                        Rocket.Core.Logging.Logger.Log(Player.CharacterName + " had a restricted item (" + Items[i] + "), and it was removed passively.");
+                    }
+                }
+            }
             if (requested.HasValue && (DateTime.Now - requested.Value).TotalSeconds >= 2)
             {
                 Provider.kick(Player.CSteamID, webClientResult);
