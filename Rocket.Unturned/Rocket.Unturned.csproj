@@ -129,6 +129,7 @@
     <Compile Include="Serialisation\UnturnedSettings.cs" />
     <Compile Include="Items\UnturnedItems.cs" />
     <Compile Include="Commands\CommandCInventory.cs" />
+    <Compile Include="Player\PlayerSpawnInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Rocket.Unturned.nuspec">

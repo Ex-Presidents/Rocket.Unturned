@@ -53,6 +53,8 @@ namespace Rocket.Unturned.Serialisation
 
         public int MaxSpawnAmount;
 
+        public int MaxRecentSpawnAmount;
+
         public void LoadDefaults()
         {
             AutomaticSave = new AutomaticSaveSettings();

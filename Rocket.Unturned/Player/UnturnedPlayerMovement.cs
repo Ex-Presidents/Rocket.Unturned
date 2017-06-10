@@ -79,7 +79,7 @@ namespace Rocket.Unturned
                     for (int e = 0; e < Search.Length; e++)
                     {
                         InventorySearch ISearch = Search[e];
-                        Player.Inventory.removeItem(ISearch.page, ISearch.jar.y);
+                        Player.Inventory.removeItem(ISearch.page, Player.Inventory.getIndex(ISearch.page, ISearch.jar.x, ISearch.jar.y));
                         Rocket.Core.Logging.Logger.Log(Player.CharacterName + " had a restricted item (" + Items[i] + "), and it was removed passively.");
                     }
                 }

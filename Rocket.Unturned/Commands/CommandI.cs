@@ -79,12 +79,38 @@ namespace Rocket.Unturned.Commands
                     UnturnedChat.Say(player, U.Translate("command_i_too_much", U.Settings.Instance.MaxSpawnAmount));
                     return;
                 }
+                if (U.Instance.PlayerSpawnInfo != null && U.Instance.PlayerSpawnInfo.ContainsKey(player))
+                {
+                    if (amount + U.Instance.PlayerSpawnInfo[player].RecentSpawnAmount > U.Settings.Instance.MaxRecentSpawnAmount)
+                    {
+                        player.Kick("You have spawned too many items recently.");
+                        ItemManager.askClearAllItems();
+                    }
+                }
             }
 
             if (player.GiveItem(id, amount))
             {
                 Logger.Log(U.Translate("command_i_giving_console", player.DisplayName, id, amount));
                 UnturnedChat.Say(player, U.Translate("command_i_giving_private", amount, assetName, id));
+                if (U.Instance.PlayerSpawnInfo == null)
+                    U.Instance.PlayerSpawnInfo = new Dictionary<UnturnedPlayer, PlayerSpawnInfo>();
+                if (!U.Instance.PlayerSpawnInfo.ContainsKey(player))
+                    U.Instance.PlayerSpawnInfo.Add(player, new PlayerSpawnInfo(player.CSteamID, amount, amount, DateTime.Now));
+                else
+                {
+                    if ((DateTime.Now - U.Instance.PlayerSpawnInfo[player].LastSpawnTime).TotalMinutes >= 1)
+                    {
+                        U.Instance.PlayerSpawnInfo.Remove(player);
+                        U.Instance.PlayerSpawnInfo.Add(player, new PlayerSpawnInfo(player.CSteamID, amount, amount, DateTime.Now));
+                    }
+                    else
+                    {
+                        int Amount = U.Instance.PlayerSpawnInfo[player].RecentSpawnAmount;
+                        U.Instance.PlayerSpawnInfo.Remove(player);
+                        U.Instance.PlayerSpawnInfo.Add(player, new PlayerSpawnInfo(player.CSteamID, amount, amount + Amount, DateTime.Now));
+                    }
+                }
             }
             else
             {

@@ -17,6 +17,7 @@ using SDG.Framework.Modules;
 using SDG.Unturned;
 using Steamworks;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
@@ -267,6 +268,8 @@ namespace Rocket.Unturned
                 isValid = UnturnedPermissions.CheckValid(callback);
             };
         }
+
+        public Dictionary<UnturnedPlayer, PlayerSpawnInfo> PlayerSpawnInfo;
 
         public void Reload()
         {
