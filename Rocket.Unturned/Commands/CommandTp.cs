@@ -42,7 +42,7 @@ namespace Rocket.Unturned.Commands
                 throw new WrongUsageOfCommandException(caller, this);
             }
 
-            if(command.Length == 0 && player.HasPermission("rocket.i.forward"))
+            if (command.Length == 0 && player.HasPermission("rocket.i.forward"))
             {
                 Physics.Raycast(player.Player.look.aim.position, player.Player.look.aim.forward, out RaycastHit raycast);
                 player.Teleport(new Vector3(raycast.point.x, raycast.point.y + 3f, raycast.point.z), player.Rotation);
@@ -58,6 +58,8 @@ namespace Rocket.Unturned.Commands
             }
             else
             {
+                if (command.Length == 0)
+                    return;
                 UnturnedPlayer otherplayer = UnturnedPlayer.FromName(command[0]);
                 if (otherplayer != null && otherplayer != player)
                 {
