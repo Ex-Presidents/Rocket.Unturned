@@ -47,9 +47,14 @@ namespace Rocket.Unturned.Serialisation
         [XmlArrayItem(ElementName = "Item")]
         public List<ushort> Items;
 
+        [XmlArrayItem(ElementName = "Vehicle")]
+        public List<ushort> Vehicles;
+
         public bool EnableItemBlacklist;
 
         public bool EnableItemSpawnLimit;
+
+        public bool EnableVehicleBlacklist;
 
         public int MaxSpawnAmount;
 
@@ -68,6 +73,10 @@ namespace Rocket.Unturned.Serialisation
             Items = new List<ushort>()
             {
                 518
+            };
+            Vehicles = new List<ushort>()
+            {
+                120
             };
         }
     }

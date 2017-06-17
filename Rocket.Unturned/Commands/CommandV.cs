@@ -65,6 +65,15 @@ namespace Rocket.Unturned.Commands
                 }
             }
 
+            if(U.Settings.Instance.EnableVehicleBlacklist && !player.HasPermission("vehicleblacklist.bypass." + id))
+            {
+                if(U.Settings.Instance.Vehicles.Contains((ushort)id))
+                {
+                    UnturnedChat.Say(caller, U.Translate("command_v_blacklisted", id));
+                    return;
+                }
+            }
+
             Asset a = SDG.Unturned.Assets.find(EAssetType.VEHICLE, id.Value);
             string assetName = ((VehicleAsset)a).vehicleName;
 
