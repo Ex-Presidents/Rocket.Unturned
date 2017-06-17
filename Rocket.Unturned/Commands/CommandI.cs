@@ -63,7 +63,7 @@ namespace Rocket.Unturned.Commands
 
             string assetName = ((ItemAsset)a).itemName;
 
-            if (U.Settings.Instance.EnableItemBlacklist && !player.HasPermission("itemblacklist.bypass" + id))
+            if (U.Settings.Instance.EnableItemBlacklist && !player.HasPermission("itemblacklist.bypass." + id))
             {
                 if (UnturnedItems.isBlacklisted(id))
                 {
